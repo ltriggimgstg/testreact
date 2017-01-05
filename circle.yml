@@ -1,10 +1,13 @@
 machine:
   environment:
     ANDROID_HOME: /usr/local/android-sdk-linux
+  node:
+    version: 6.5.0
 test:
   pre:
     - emulator -avd circleci-android23 -no-audio -no-window:
         background: true
   override:
     - npm install
+    - react-native start
     - react-native run-android
